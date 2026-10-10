@@ -1,16 +1,23 @@
 # Run these from inside the non-web-app folder
+# This is a command-line tool (text statistics), not a web app.
 
 # 1. Build the image
-docker build -t denisle1406/swe40006-worker:latest .
+docker build -t denisle1406/swe40006-cli:latest .
 
-# 2. Run it locally. No port is needed; watch the log output ("Job tick ...") in the terminal.
-#    Press Ctrl+C to stop.
-docker run --rm denisle1406/swe40006-worker:latest
+# 2. Run it with some text (the container prints the result and exits)
+docker run --rm denisle1406/swe40006-cli:latest --text "the cat saw the dog and the dog saw the cat"
 
-# 3. Push the image to Docker Hub
+# 3. Analyse a file from your machine by mounting the current folder into the container
+#    (Windows cmd: use %cd% ; PowerShell: use ${PWD} ; Linux/Mac: use $(pwd))
+docker run --rm -v "%cd%":/data denisle1406/swe40006-cli:latest --file /data/sample.txt --top 5
+
+# 4. Show the help text
+docker run --rm denisle1406/swe40006-cli:latest --help
+
+# 5. Push the image to Docker Hub
 docker login
-docker push denisle1406/swe40006-worker:latest
+docker push denisle1406/swe40006-cli:latest
 
-# 4. Deploy to another Docker installation (another PC, VM, or GitHub Codespaces):
-docker pull denisle1406/swe40006-worker:latest
-docker run --rm denisle1406/swe40006-worker:latest
+# 6. Deploy to another Docker installation (another PC, VM, or GitHub Codespaces):
+docker pull denisle1406/swe40006-cli:latest
+docker run --rm denisle1406/swe40006-cli:latest --text "hello from another device"
