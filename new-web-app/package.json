@@ -1,0 +1,10 @@
+{
+  "name": "new-web-app",
+  "version": "1.0.0",
+  "description": "Simple Node.js web app for deployment with Docker",
+  "main": "app.js",
+  "scripts": {
+    "start": "node app.js"
+  },
+  "license": "ISC"
+}

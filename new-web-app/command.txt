@@ -1,0 +1,15 @@
+# Run these from inside the new-web-app folder
+
+# 1. Build the image
+docker build -t denisle1406/swe40006-node:latest .
+
+# 2. Run it locally, then open http://localhost:3000
+docker run --rm -p 3000:3000 denisle1406/swe40006-node:latest
+
+# 3. Push the image to Docker Hub
+docker login
+docker push denisle1406/swe40006-node:latest
+
+# 4. Deploy to another Docker installation (another PC, VM, or GitHub Codespaces):
+docker pull denisle1406/swe40006-node:latest
+docker run --rm -p 3000:3000 denisle1406/swe40006-node:latest
