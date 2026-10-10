@@ -1,0 +1,5 @@
+# Build the Docker image
+docker build -t hello-world-py .
+
+# Run the container (prints "Hello, World!")
+docker run --rm hello-world-py
