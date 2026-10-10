@@ -1,0 +1,16 @@
+# Run these from inside the non-web-app folder
+
+# 1. Build the image
+docker build -t denisle1406/swe40006-worker:latest .
+
+# 2. Run it locally. No port is needed; watch the log output ("Job tick ...") in the terminal.
+#    Press Ctrl+C to stop.
+docker run --rm denisle1406/swe40006-worker:latest
+
+# 3. Push the image to Docker Hub
+docker login
+docker push denisle1406/swe40006-worker:latest
+
+# 4. Deploy to another Docker installation (another PC, VM, or GitHub Codespaces):
+docker pull denisle1406/swe40006-worker:latest
+docker run --rm denisle1406/swe40006-worker:latest
