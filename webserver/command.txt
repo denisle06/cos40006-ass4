@@ -1,0 +1,16 @@
+# Run these from inside the webserver folder
+
+# 1. Build the image
+docker build -t denisle1406/swe40006-web:latest .
+
+# 2. Run it locally, then open http://localhost:8000 (should show "Hello, World!")
+docker run --rm -p 8000:8000 denisle1406/swe40006-web:latest
+
+# 3. Push the image to Docker Hub
+docker login
+docker push denisle1406/swe40006-web:latest
+
+# 4. On ANOTHER Docker device (another PC, VM, or https://labs.play-with-docker.com):
+#    pull the image from Docker Hub, then run it
+docker pull denisle1406/swe40006-web:latest
+docker run --rm -p 8000:8000 denisle1406/swe40006-web:latest
