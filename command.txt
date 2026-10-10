@@ -4,7 +4,7 @@ docker build -t hello-world-py .
 # Run the container (prints "Hello, World!")
 docker run --rm hello-world-py
 
-# Push to GitHub
-git add hello.py Dockerfile command.txt
-git commit -m "Add hello world app, Dockerfile, and deploy commands"
-git push -u origin <branch-name>
+# Push to Docker Hub
+docker login
+docker tag hello-world-py <dockerhub-username>/hello-world-py:latest
+docker push <dockerhub-username>/hello-world-py:latest
