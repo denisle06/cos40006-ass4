@@ -10,6 +10,7 @@ docker run --rm -p 3000:3000 denisle1406/swe40006-node:latest
 docker login
 docker push denisle1406/swe40006-node:latest
 
-# 4. Deploy to another Docker installation (another PC, VM, or GitHub Codespaces):
+# 4. Deploy to another Docker installation: pull from Docker Hub, run,
+#    then open http://localhost:3000 on that device
 docker pull denisle1406/swe40006-node:latest
 docker run --rm -p 3000:3000 denisle1406/swe40006-node:latest

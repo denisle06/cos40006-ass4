@@ -1,10 +1,16 @@
-# Build the Docker image
+# Run these from inside the python folder
+
+# 1. Build the image
 docker build -t hello-world-py .
 
-# Run the container (prints "Hello, World!")
+# 2. Run the container (prints "Hello, World!")
 docker run --rm hello-world-py
 
-# Push to Docker Hub
+# 3. Tag the image with the Docker Hub name, then push it
 docker login
-docker tag hello-world-py <dockerhub-username>/hello-world-py:latest
-docker push <dockerhub-username>/hello-world-py:latest
+docker tag hello-world-py denisle1406/swe40006-python:latest
+docker push denisle1406/swe40006-python:latest
+
+# 4. On ANOTHER Docker device: pull the image from Docker Hub, then run it
+docker pull denisle1406/swe40006-python:latest
+docker run --rm denisle1406/swe40006-python:latest

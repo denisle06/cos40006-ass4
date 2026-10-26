@@ -18,6 +18,6 @@ docker run --rm denisle1406/swe40006-cli:latest --help
 docker login
 docker push denisle1406/swe40006-cli:latest
 
-# 6. Deploy to another Docker installation (another PC, VM, or GitHub Codespaces):
+# 6. Deploy to another Docker installation: pull from Docker Hub, then run
 docker pull denisle1406/swe40006-cli:latest
 docker run --rm denisle1406/swe40006-cli:latest --text "hello from another device"
